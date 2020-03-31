@@ -49,11 +49,11 @@ describe("Create a new user", () => {
         await page.$eval( '.status-display', el => el.click() );
         await page.screenshot({path: './tests/img/newUser4.png'});
         // remplit l'input UserName
-        await page.type('input[ng-model="newUserParams.username"]', 'polalaPieuvre');
+        await page.type('input[ng-model="newUserParams.username"]', 'marloucheLaMouche');
         // remplit l'input PassWord
-        await page.type('input[ng-model="newUserParams.userPassword"]', 'pola1234');
+        await page.type('input[ng-model="newUserParams.userPassword"]', 'marley1234');
         // remplit l'input Email
-        await page.type('input[ng-model="newUserParams.userEmail"]', 'pola@pola.fr');
+        await page.type('input[ng-model="newUserParams.userEmail"]', 'marley@marley.fr');
         // on attent que l'élément ".status-display new-user-add" soit chargé
         await page.waitForSelector('.new-user-add');
         await page.$eval( '.new-user-add', el => el.click() );
@@ -69,6 +69,12 @@ describe("Create a new user", () => {
     beforeAll(async () => {
         // ouvrir un onglet dans le navigateur
         page = await global.__BROWSER__.newPage()
+    }, timeout)
+
+    
+    afterAll(async () => {
+        // ouvrir un onglet dans le navigateur
+        await page.goto('http://polr.web-74.com/logout');
     }, timeout)
 
 });

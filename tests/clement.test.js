@@ -19,8 +19,8 @@ describe("Tests login", () => {
         await page.waitForSelector('.dropdown-toggle');
         await page.$eval('.dropdown-toggle', el => el.click());
         await page.waitForSelector('.open');
-        await page.type('input[name=username]', 'toto');
-        await page.type('input[name=password]', 'tata');
+        await page.type('input[name="username"]', 'toto');
+        await page.type('input[name="password"]', 'tata');
         await page.screenshot({path: './tests/img/basic-homecliklogin.png'});
         await page.$eval('.login-form-submit', el => el.click());
         const login = await page.$eval('body', e => e.innerHTML);
@@ -34,6 +34,11 @@ describe("Tests login", () => {
     beforeAll(async () => {
         // ouvrir un onglet dans le navigateur
         page = await global.__BROWSER__.newPage()
+    }, timeout)
+
+    afterAll(async () => {
+        // ouvrir un onglet dans le navigateur
+        await page.goto('http://polr.web-74.com/logout');
     }, timeout)
 
 });
