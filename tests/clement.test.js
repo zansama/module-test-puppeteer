@@ -36,4 +36,9 @@ describe("Tests login", () => {
         page = await global.__BROWSER__.newPage()
     }, timeout)
 
+    afterAll(async () => {
+        // ouvrir un onglet dans le navigateur
+        await page.goto('http://polr.web-74.com/logout');
+    }, timeout)
+
 });
