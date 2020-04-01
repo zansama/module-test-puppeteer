@@ -19,8 +19,8 @@ describe("Tests login", () => {
         await page.waitForSelector('.dropdown-toggle');
         await page.$eval('.dropdown-toggle', el => el.click());
         await page.waitForSelector('.open');
-        await page.type('input[name=username]', 'toto');
-        await page.type('input[name=password]', 'tata');
+        await page.type('form>input[name="username"]', 'toto');
+        await page.type('form>input[name="password"]', 'tata');
         await page.screenshot({path: './tests/img/basic-homecliklogin.png'});
         await page.$eval('.login-form-submit', el => el.click());
         const login = await page.$eval('body', e => e.innerHTML);

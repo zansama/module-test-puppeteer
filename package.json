@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "test": "./node_modules/.bin/jest --watch"
+    "test": "./node_modules/.bin/jest"
   },
   "engines": {
     "node": "8.*",
